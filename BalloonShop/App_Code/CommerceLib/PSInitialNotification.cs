@@ -13,15 +13,15 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSInitialNotification started.", 20000);
+      orderProcessor.CreateAudit("PSInitialNotification започна.", 20000);
 
       try
       {
         // send mail to customer
-        orderProcessor.MailCustomer("BalloonShop order received.", GetMailBody());
+        orderProcessor.MailCustomer("BalloonShop order received.", GetMailBody()); //TODO
         // audit
         orderProcessor.CreateAudit(
-          "Notification e-mail sent to customer.", 20002);
+          "Email беше изпратен на клиента.", 20002);
         // update order status
         orderProcessor.Order.UpdateStatus(1);
         // continue processing
@@ -31,26 +31,26 @@
       {
         // mail sending failure
         throw new OrderProcessorException(
-          "Unable to send e-mail to customer.", 0);
+          "Не можахме да изпратим Email на клиента.", 0);
       }
       // audit
-      processor.CreateAudit("PSInitialNotification finished.", 20001);
+      processor.CreateAudit("PSInitialNotification приключи.", 20001);
     }
 
     private string GetMailBody()
     {
       // construct message body
       string mail;
-      mail = "Thank you for your order! The products you have "
-           + "ordered are as follows:\n\n"
+      mail = "Благодарим Ви за поръчката. Продуктите които поръчахте "
+           + "са:\n\n"
            + orderProcessor.Order.OrderAsString
-           + "\n\nYour order will be shipped to:\n\n"
+           + "\n\nВашата поръчка ще бъде доставена на:\n\n"
            + orderProcessor.Order.CustomerAddressAsString
-           + "\n\nOrder reference number:\n\n"
+           + "\n\nномер на поръчката:\n\n"
            + orderProcessor.Order.OrderID.ToString()
-           + "\n\nYou will receive a confirmation e-mail when this "
-           + "order has been dispatched. Thank you for shopping "
-           + "at BalloonShop!";
+           + "\n\nЩе получите потвърждаващ Email когато "
+           + "поръчката Ви бъде изпратена. Благодарим Ви че пазарувахте "
+           + "при нас!";
       return mail;
     }
   }

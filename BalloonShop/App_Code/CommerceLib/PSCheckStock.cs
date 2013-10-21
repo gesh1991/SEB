@@ -13,7 +13,7 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSCheckStock started.", 20200);
+      orderProcessor.CreateAudit("PSCheckStock започна.", 20200);
 
       try
       {
@@ -23,7 +23,7 @@
 
         // audit
         orderProcessor.CreateAudit(
-          "Notification e-mail sent to supplier.", 20202);
+          "Известяващ Email беше изпратен на доставчика.", 20202);
         // update order status
         orderProcessor.Order.UpdateStatus(3);
       }
@@ -31,21 +31,21 @@
       {
         // mail sending failure
         throw new OrderProcessorException(
-          "Unable to send e-mail to supplier.", 2);
+          "Не можахме да изпратим Email на доставчика.", 2);
       }
       // audit
-      processor.CreateAudit("PSCheckStock finished.", 20201);
+      processor.CreateAudit("PSCheckStock приключи.", 20201);
     }
 
     private string GetMailBody()
     {
       // construct message body
       string mail = 
-        "The following goods have been ordered:\n\n"
+        "Следните стоки бяха поръчани:\n\n"
         + orderProcessor.Order.OrderAsString
-        + "\n\nPlease check availability and confirm via "
+        + "\n\nМоля проверете за наличност и потвърдете чрез"
         + "http://www.example.com/AdminOrders.aspx"
-        + "\n\nOrder reference number:\n\n"
+        + "\n\nПоръчка номер:\n\n"
         + orderProcessor.Order.OrderID.ToString();
       return mail;
     }
