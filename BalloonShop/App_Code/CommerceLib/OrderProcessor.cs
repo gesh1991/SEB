@@ -31,7 +31,7 @@ namespace CommerceLib
       ContinueNow = true;
 
       // log start of execution
-      CreateAudit("Order Processor started.", 10000);
+      CreateAudit("Възникна грешка при обработката на поръчката.", 10000);
 
       // process pipeline section
       try
@@ -45,26 +45,26 @@ namespace CommerceLib
       }
       catch (OrderProcessorException ex)
       {
-        MailAdmin("Order Processing error occurred.",
+          MailAdmin("Възникна грешка при обработката на поръчката.",
           ex.Message, ex.SourceStage);
-        CreateAudit("Order Processing error occurred.", 10002);
+          CreateAudit("Възникна грешка при обработката на поръчката.", 10002);
         throw new OrderProcessorException(
-          "Error occurred, order aborted. "
-          + "Details mailed to administrator.", 100);
+          "Възникна грешка, поръчката е отменена. "
+          + "Данни за грешката бяха изпратени на администратора.", 100);
       }
       catch (Exception ex)
       {
-        MailAdmin("Order Processing error occurred.", ex.Message,
+          MailAdmin("Възникна грешка при обработката на поръчката.", ex.Message,
           100);
-        CreateAudit("Order Processing error occurred.", 10002);
+          CreateAudit("Възникна грешка при обработката на поръчката.", 10002);
         throw new OrderProcessorException(
-          "Unknown error, order aborted. "
-          + "Details mailed to administrator.", 100);
+          "Неизвестна грешка, поръчката беше отменена. "
+          + "Данни за грешката бяха изпратени на администратора.", 100);
       }
       finally
       {
         CommerceLibAccess.CreateAudit(Order.OrderID,
-          "Order Processor finished.", 10001);
+          "Обработката на поръчката приключи.", 10001);
       }
     }
 
@@ -114,10 +114,10 @@ namespace CommerceLib
           break;
         case 8:
           throw new OrderProcessorException(
-            "Order has already been completed.", 100);
+            "Поръчката вече е изпълнена.", 100);
         default:
           throw new OrderProcessorException(
-            "Unknown pipeline section requested.", 100);
+            "Unknown pipeline section requested.", 100);//TODO WHAT IS IT
       }
     }
 
@@ -130,6 +130,5 @@ namespace CommerceLib
     {
       OrderProcessorMailer.MailSupplier(subject, message);
     }
-
   }
 }

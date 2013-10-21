@@ -60,7 +60,7 @@ namespace CommerceLib
             response.DatacashReference);
           // audit
           orderProcessor.CreateAudit(
-            "Funds available for purchase.", 20102);
+            "Налични средства за покупка.", 20102);
           // update order status
           orderProcessor.Order.UpdateStatus(2);
           // continue processing
@@ -70,11 +70,11 @@ namespace CommerceLib
         {
           // audit
           orderProcessor.CreateAudit(
-            "Funds not available for purchase.", 20103);
+            "Няма налични средства за покупката.", 20103);
           // mail admin
 
-          orderProcessor.MailAdmin("Credit card declined.",
-            "XML data exchanged:\n" + request.Xml + "\n\n"
+          orderProcessor.MailAdmin("Кредитната карта беше отхвърлена.",
+            "XML данни:\n" + request.Xml + "\n\n"
             + response.Xml, 1);
         }
       }
@@ -82,10 +82,10 @@ namespace CommerceLib
       {
         // fund checking failure
         throw new OrderProcessorException(
-          "Error occured while checking funds.", 1);
+          "Възникна грешка при проверката за наличност в банковвата сметка.", 1);
       }
       // audit
-      processor.CreateAudit("PSCheckFunds finished.", 20101);
+      processor.CreateAudit("PSCheckFunds приключи.", 20101);
     }
   }
 }

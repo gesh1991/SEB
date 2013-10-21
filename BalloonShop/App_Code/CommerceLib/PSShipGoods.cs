@@ -14,15 +14,15 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSShipGoods started.", 20500);
+      orderProcessor.CreateAudit("PSShipGoods започна.", 20500);
       try
       {
         // send mail to supplier
-        orderProcessor.MailSupplier("BalloonShop ship goods.",
+        orderProcessor.MailSupplier("BalloonShop ship goods.", //TODO
           GetMailBody());
         // audit
         orderProcessor.CreateAudit(
-          "Ship goods e-mail sent to supplier.", 20502);
+          "Email за доставка на стоки беше изпратен на доставчика.", 20502);
         // update order status
         orderProcessor.Order.UpdateStatus(6);
       }
@@ -30,10 +30,10 @@
       {
         // mail sending failure
         throw new OrderProcessorException(
-          "Unable to send e-mail to supplier.", 5);
+          "Не можахме да изпратим Email на доставчика.", 5);
       }
       // audit
-      processor.CreateAudit("PSShipGoods finished.", 20501);
+      processor.CreateAudit("PSShipGoods приключи.", 20501);
     }
 
     private string GetMailBody()
