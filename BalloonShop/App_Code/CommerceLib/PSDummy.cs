@@ -12,13 +12,13 @@ namespace CommerceLib
   {
     public void Process(OrderProcessor processor)
     {
-      processor.CreateAudit("PSDoNothing започна.", 99999);
-      processor.CreateAudit("Клиент: "
+      processor.CreateAudit("PSDoNothing started.", 99999);
+      processor.CreateAudit("Customer: "
         + processor.Order.Customer.UserName, 99999);
-      processor.CreateAudit("Първи продукт в поръчката: "
+      processor.CreateAudit("First item in order: "
         + processor.Order.OrderDetails[0].ItemAsString, 99999);
-      processor.MailAdmin("Тест.", "Тестово съобщение от PSDummy.", 99999);
-      processor.CreateAudit("PSDoNothing приключи.", 99999);
+      processor.MailAdmin("Test.", "Test mail from PSDummy.", 99999);
+      processor.CreateAudit("PSDoNothing finished.", 99999);
     }
   }
 }

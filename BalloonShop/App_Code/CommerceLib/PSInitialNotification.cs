@@ -13,15 +13,15 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSInitialNotification започна.", 20000);
+      orderProcessor.CreateAudit("PSInitialNotification started.", 20000);
 
       try
       {
         // send mail to customer
-        orderProcessor.MailCustomer("BalloonShop order received.", GetMailBody()); //TODO
+        orderProcessor.MailCustomer("BalloonShop order received.", GetMailBody());
         // audit
         orderProcessor.CreateAudit(
-          "Email беше изпратен на клиента.", 20002);
+          "Notification e-mail sent to customer.", 20002);
         // update order status
         orderProcessor.Order.UpdateStatus(1);
         // continue processing
@@ -31,26 +31,26 @@
       {
         // mail sending failure
         throw new OrderProcessorException(
-          "Не можахме да изпратим Email на клиента.", 0);
+          "Unable to send e-mail to customer.", 0);
       }
       // audit
-      processor.CreateAudit("PSInitialNotification приключи.", 20001);
+      processor.CreateAudit("PSInitialNotification finished.", 20001);
     }
 
     private string GetMailBody()
     {
       // construct message body
       string mail;
-      mail = "Благодарим Ви за поръчката. Продуктите които поръчахте "
-           + "са:\n\n"
+      mail = "Thank you for your order! The products you have "
+           + "ordered are as follows:\n\n"
            + orderProcessor.Order.OrderAsString
-           + "\n\nВашата поръчка ще бъде доставена на:\n\n"
+           + "\n\nYour order will be shipped to:\n\n"
            + orderProcessor.Order.CustomerAddressAsString
-           + "\n\nномер на поръчката:\n\n"
+           + "\n\nOrder reference number:\n\n"
            + orderProcessor.Order.OrderID.ToString()
-           + "\n\nЩе получите потвърждаващ Email когато "
-           + "поръчката Ви бъде изпратена. Благодарим Ви че пазарувахте "
-           + "при нас!";
+           + "\n\nYou will receive a confirmation e-mail when this "
+           + "order has been dispatched. Thank you for shopping "
+           + "at BalloonShop!";
       return mail;
     }
   }

@@ -13,16 +13,16 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSFinalNotification започна.",
+      orderProcessor.CreateAudit("PSFinalNotification started.",
         20700);
       try
       {
         // send mail to customer
-        orderProcessor.MailCustomer("BalloonShop order dispatched.", //TODO
+        orderProcessor.MailCustomer("BalloonShop order dispatched.",
           GetMailBody());
         // audit
         orderProcessor.CreateAudit(
-          "Email беше изпратен на клиента.", 20702);
+          "Dispatch e-mail sent to customer.", 20702);
         // update order status
         orderProcessor.Order.UpdateStatus(8);
       }
@@ -30,24 +30,24 @@
       {
         // mail sending failure
         throw new OrderProcessorException(
-          "Не можахме да изпратим Email на клиента.", 7);
+          "Unable to send e-mail to customer.", 7);
       }
       // audit
-      processor.CreateAudit("PSFinalNotification приключи.", 20701);
+      processor.CreateAudit("PSFinalNotification finished.", 20701);
     }
 
     private string GetMailBody()
     {
       // construct message body
       string mail =
-          "Поръчката беше изпратена! Следните "
-        + "продукти ще бъдат доставени:\n\n"
+          "Your order has now been dispatched! The following "
+        + "products have been shipped:\n\n"
         + orderProcessor.Order.OrderAsString
-        + "\n\nПоръчката Ви е доставена на:\n\n"
+        + "\n\nYour order has been shipped to:\n\n"
         + orderProcessor.Order.CustomerAddressAsString
-        + "\n\nНомер на поръчката:\n\n"
+        + "\n\nOrder reference number:\n\n"
         + orderProcessor.Order.OrderID.ToString()
-        + "\n\nБлагодарим Ви че пазарувахте при нас!";
+        + "\n\nThank you for shopping at BalloonShop!";
       return mail;
     }
   }
