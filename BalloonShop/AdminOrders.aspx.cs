@@ -33,13 +33,13 @@ public partial class AdminOrders : System.Web.UI.Page
             if (orders.Count == 0)
             {
                 errorLabel.Text =
-                  "Selected customer has made no orders.";
+                  "Клиентът все още няма поръчки.";
             }
             grid.DataBind();
         }
         catch
         {
-            errorLabel.Text = "Couldn't get the requested orders!";
+            errorLabel.Text = "Не можахме да намерим исканите поръчки!";
         }
     }
 
@@ -56,11 +56,11 @@ public partial class AdminOrders : System.Web.UI.Page
         }
         catch (IndexOutOfRangeException ex)
         {
-            errorLabel.Text = "No such order ID";
+            errorLabel.Text = "Няма такова ID на поръчка";
         }
         catch (FormatException fe)
         {
-            errorLabel.Text = "No such order ID";
+            errorLabel.Text = "Няма такова ID на поръка";
         }
     }
 
@@ -75,13 +75,13 @@ public partial class AdminOrders : System.Web.UI.Page
             grid.DataSource = orders;
             if (orders.Count == 0)
             {
-                errorLabel.Text = "No orders to get.";
+                errorLabel.Text = "Няма поръчки.";
             }
             grid.DataBind();
         }
         catch
         {
-            errorLabel.Text = "Couldn't get the requested orders!";
+            errorLabel.Text = "Не можахме да намерим исканите поръчки!";
         }
     }
 
@@ -98,13 +98,13 @@ public partial class AdminOrders : System.Web.UI.Page
             if (orders.Count == 0)
             {
                 errorLabel.Text =
-                  "No orders between selected dates.";
+                  "Няма поръчки в зададения интервал.";
             }
             grid.DataBind();
         }
         catch
         {
-            errorLabel.Text = "Couldn't get the requested orders!";
+            errorLabel.Text = "Не можахме да намерим исканите поръчки!";
         }
     }
 
@@ -118,13 +118,13 @@ public partial class AdminOrders : System.Web.UI.Page
             grid.DataSource = orders;
             if (orders.Count == 0)
             {
-                errorLabel.Text = "No orders awaiting stock check.";
+                errorLabel.Text = "Няма поръчки.";
             }
             grid.DataBind();
         }
         catch
         {
-            errorLabel.Text = "Couldn't get the requested orders!";
+            errorLabel.Text = "Не можахме да намерим исканите поръчки!!";
         }
     }
 
@@ -138,14 +138,14 @@ public partial class AdminOrders : System.Web.UI.Page
             grid.DataSource = orders;
             if (orders.Count == 0)
             {
-                errorLabel.Text = "No orders awaiting shipment.";
+                errorLabel.Text = "Няма чакащи за доставка поръчки.";
             }
             grid.DataBind();
         }
 
         catch
         {
-            errorLabel.Text = "Couldn't get the requested orders!";
+            errorLabel.Text = "Не можахме да намерим исканите поръчки!";
         }
     }
 

@@ -18,7 +18,7 @@
       try
       {
         // send mail to supplier
-        orderProcessor.MailSupplier("BalloonShop ship goods.", //TODO
+        orderProcessor.MailSupplier("BalloonShop - доставка на стока.", //TODO
           GetMailBody());
         // audit
         orderProcessor.CreateAudit(
@@ -40,13 +40,13 @@
     {
       // construct message body
       string mail =
-        "Payment has been received for the following goods:\n\n"
+        "Беше заплатено за следните стоки:\n\n"
         + orderProcessor.Order.OrderAsString
-        + "\n\nPlease ship to:\n\n"
+        + "\n\nМоля доставете на:\n\n"
         + orderProcessor.Order.CustomerAddressAsString
-        + "\n\nWhen goods have been shipped, please confirm via "
+        + "\n\nСлед доставката моля потвърдете на "
         + "http://www.example.com/AdminOrders.aspx"
-        + "\n\nOrder reference number:\n\n"
+        + "\n\nНомер на поръчката:\n\n"
         + orderProcessor.Order.OrderID.ToString();
       return mail;
     }

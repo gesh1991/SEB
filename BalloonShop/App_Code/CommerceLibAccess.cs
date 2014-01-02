@@ -33,16 +33,16 @@ public class ShippingInfo
 public class CommerceLibAccess
 {
     public static readonly string[] OrderStatuses = 
-    {"Order placed, notifying customer", // 0
-    "Awaiting confirmation of funds",    // 1
-    "Notifying supplier—stock check",    // 2
-    "Awaiting stock confirmation",       // 3
-    "Awaiting credit card payment",      // 4
-    "Notifying supplier—shipping",       // 5
-    "Awaiting shipment confirmation",    // 6
-    "Sending final notification",        // 7
-    "Order completed",                   // 8
-    "Order canceled"};                  // 9
+    {"Поръчката е направена уведомете клиента", // 0
+    "Очакваме потвърждение за налични средства",    // 1
+    "Оведомихме доставчика",    // 2
+    "Очакваме потвърждение от доставчика",       // 3
+    "Очакваме плащане с лредитна карта",      // 4
+    "Оведомяваме доставчика",       // 5
+    "Очакваме потвърждение от доставчика",    // 6
+    "Изпращаме последно съобщение",        // 7
+    "Поръчката приключи",                   // 8
+    "Поръчката беше отказана"};                  // 9
 
     public static List<ShippingInfo> GetShippingInfo(
     int shippingRegionId)

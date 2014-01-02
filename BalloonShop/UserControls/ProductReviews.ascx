@@ -1,17 +1,17 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProductReviews.ascx.cs"
     Inherits="UserControls_ProductReviews" %>
 <p class="ReviewHead">
-    Customer Reviews</p>
+    Мнения на клиенти</p>
 <asp:DataList ID="list" runat="server" ShowFooter="true" CssClass="ReviewTable">
     <ItemStyle CssClass="ReviewTable" />
     <ItemTemplate>
         <p>
-            Review by <strong>
-                <%# Eval("UserName") %></strong> on
+            Мнение от <strong>
+                <%# Eval("UserName") %></strong> за
             <%# String.Format("{0:D}", Eval("DateCreated")) %>:
             <br />
             <i>
-                <%# Eval("Review") %> | Rating: <%# Eval("Rating") %></i>
+                <%# Eval("Review") %> | Рейтинг: <%# Eval("Rating") %></i>
 
         </p>
     </ItemTemplate>
@@ -20,7 +20,7 @@
 </asp:DataList>
 <asp:Panel ID="addReviewPanel" runat="server">
     <p>
-        Write your own review!</p>
+        Напишете Вашето мнение!</p>
     <p>
         <asp:TextBox runat="server" ID="reviewTextBox" Rows="3" Columns="88" TextMode="MultiLine" />
     </p>
@@ -34,11 +34,11 @@
             <asp:ListItem Text="5" />
         </asp:DropDownList>
     </p>
-    <asp:LinkButton ID="addReviewButton" runat="server" OnClick="addReviewButton_Click">Add Review</asp:LinkButton>
+    <asp:LinkButton ID="addReviewButton" runat="server" OnClick="addReviewButton_Click">Добави мнение</asp:LinkButton>
 </asp:Panel>
 <asp:LoginView ID="LoginView1" runat="server">
     <AnonymousTemplate>
         <p>
-            Please log in to write your own review.</p>
+            Моля влезте в профила си, за да оставите мнение.</p>
     </AnonymousTemplate>
 </asp:LoginView>

@@ -14,7 +14,7 @@ namespace CommerceLib
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSTakePayment started.", 20400);
+      orderProcessor.CreateAudit("PSTakePayment започна.", 20400);
       try
       {
         // take customer funds via DataCash gateway
@@ -39,7 +39,7 @@ namespace CommerceLib
         {
           // audit
           orderProcessor.CreateAudit(
-            "Funds deducted from customer credit card account.",
+            "Сумата беше взета от кредитната карта на клиента.",
             20402);
           // update order status
           orderProcessor.Order.UpdateStatus(5);
@@ -50,12 +50,12 @@ namespace CommerceLib
         {
           // audit
           orderProcessor.CreateAudit(
-           "Error taking funds from customer credit card account.",
+           "Възникна проблем при извличането на средства от сметката на клиента.",
            20403);
           // mail admin
           orderProcessor.MailAdmin(
-            "Credit card fulfillment declined.",
-            "XML data exchanged:\n" + request.Xml + "\n\n" +
+            "Картата беше отхвърлена.",
+            "XML данни за грешката:\n" + request.Xml + "\n\n" +
             response.Xml, 1);
         }
       }
@@ -63,10 +63,10 @@ namespace CommerceLib
       {
         // fund checking failure
         throw new OrderProcessorException(
-          "Error occured while taking payment.", 4);
+          "Възникна грешка.", 4);
       }
       // audit
-      processor.CreateAudit("PSTakePayment finished.", 20401);
+      processor.CreateAudit("PSTakePayment приключи.", 20401);
     }
   }
 }

@@ -45,7 +45,7 @@ namespace SecurityLib
       catch
       {
         throw new StringEncryptorException(
-          "Unable to encrypt data.");
+          "Не можахме да криптираме данните.");
       }
     }
 
@@ -82,7 +82,7 @@ namespace SecurityLib
       catch
       {
         throw new StringEncryptorException(
-          "Unable to decrypt data.");
+          "Не можахме да декриптираме данните.");
       }
     }
   }

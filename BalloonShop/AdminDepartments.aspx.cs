@@ -32,7 +32,7 @@ public partial class AdminDepartments : System.Web.UI.Page
     // Set the row for which to enable edit mode
     grid.EditIndex = e.NewEditIndex;
     // Set status message 
-    statusLabel.Text = "Editing row # " + e.NewEditIndex.ToString();
+    statusLabel.Text = "Промяна на ред # " + e.NewEditIndex.ToString();
     // Reload the grid
     BindGrid();
   }
@@ -45,7 +45,7 @@ public partial class AdminDepartments : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Set status message
-    statusLabel.Text = "Editing canceled";
+    statusLabel.Text = "Промените бяха отменени";
     // Reload the grid
     BindGrid();
   }
@@ -62,7 +62,7 @@ public partial class AdminDepartments : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Display status message
-    statusLabel.Text = success ? "Update successful" : "Update failed";
+    statusLabel.Text = success ? "Промените бяха запазени" : "Уупс нещо се обърка!";
     // Reload the grid
     BindGrid();
   }
@@ -77,7 +77,7 @@ public partial class AdminDepartments : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Display status message
-    statusLabel.Text = success ? "Delete successful" : "Delete failed";
+    statusLabel.Text = success ? "Изтриването беше успешно" : "Уупс нещо се обърка!";
     // Reload the grid
     BindGrid();
   }
@@ -88,7 +88,7 @@ public partial class AdminDepartments : System.Web.UI.Page
     // Execute the insert command
     bool success = CatalogAccess.AddDepartment(newName.Text, newDescription.Text);
     // Display status message
-    statusLabel.Text = success ? "Insert successful" : "Insert failed";
+    statusLabel.Text = success ? "Вмъкването неше успешно" : "Уупс нещо се обърка!";
     // Reload the grid
     BindGrid();
   }

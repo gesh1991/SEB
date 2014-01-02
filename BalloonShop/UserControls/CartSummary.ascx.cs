@@ -26,7 +26,7 @@ public partial class UserControls_CartSummary : System.Web.UI.UserControl
     // if the shopping cart is empty...
     if (dt.Rows.Count == 0)
     {
-      cartSummaryLabel.Text = "Your shopping cart is empty.";
+      cartSummaryLabel.Text = "Кошницата ви е празна.";
       totalAmountLabel.Text = String.Format("{0:c}", 0);
       viewCartLink.Visible = false;
       list.Visible = false;
@@ -39,7 +39,7 @@ public partial class UserControls_CartSummary : System.Web.UI.UserControl
       list.DataSource = dt;
       list.DataBind();
       // set up controls
-      cartSummaryLabel.Text = "Cart summary ";
+      cartSummaryLabel.Text = "Кошница с: ";
       viewCartLink.Visible = true;
       // display the total amount
       decimal amount = ShoppingCartAccess.GetTotalAmount();

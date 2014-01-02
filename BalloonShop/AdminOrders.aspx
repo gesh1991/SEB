@@ -2,63 +2,63 @@
   CodeFile="AdminOrders.aspx.cs" Inherits="AdminOrders" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titlePlaceHolder" runat="Server">
-  <span class="AdminTitle">BalloonShop Admin
+  <span class="AdminTitle">TicketsOne администратор
     <br />
-    Orders </span>
+    Поръчки </span>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="adminPlaceHolder" runat="Server">
-  Show orders by customer
+  Поръчки по клиент
   <asp:DropDownList ID="userDropDown" runat="server" DataSourceID="CustomerNameDS"
     DataTextField="UserName" DataValueField="UserId" />
-  <asp:Button ID="byCustomerGo" runat="server" Text="Go" OnClick="byCustomerGo_Click" />
+  <asp:Button ID="byCustomerGo" runat="server" Text="Давай" OnClick="byCustomerGo_Click" />
   <br />
-  Get order by ID
+  Поръчка по ID 
   <asp:TextBox ID="orderIDBox" runat="server" Width="77px" />
-  <asp:Button ID="byIDGo" runat="server" Text="Go" OnClick="byIDGo_Click" />
+  <asp:Button ID="byIDGo" runat="server" Text="Давай" OnClick="byIDGo_Click" />
   <br />
-  Show the most recent
+  Най-новата поръчка
   <asp:TextBox ID="recentCountTextBox" runat="server" MaxLength="4" Width="40px">20</asp:TextBox>
   orders
-  <asp:Button ID="byRecentGo" runat="server" Text="Go" OnClick="byRecentGo_Click" />
+  <asp:Button ID="byRecentGo" runat="server" Text="Давай" OnClick="byRecentGo_Click" />
   <br />
-  Show all orders created between (1/1/1999 - 1/1/2015)
+  Покажи всички поръчки от (1/1/1999 - 1/1/2015)
   <asp:TextBox ID="startDateTextBox" runat="server" Width="72px" />
-  and (1/1/2009 - 1/1/2015)
+  до (1/1/2009 - 1/1/2015)
   <asp:TextBox ID="endDateTextBox" runat="server" Width="72px" />
-  <asp:Button ID="byDateGo" runat="server" Text="Go" OnClick="byDateGo_Click" />
+  <asp:Button ID="byDateGo" runat="server" Text="Давай" OnClick="byDateGo_Click" />
   <br />
-  Show all orders awaiting stock check
-  <asp:Button ID="awaitingStockGo" runat="server" Text="Go" OnClick="awaitingStockGo_Click" />
+  Покажи всички поръчки за които чакаме потвърждение за наличност
+  <asp:Button ID="awaitingStockGo" runat="server" Text="Давай" OnClick="awaitingStockGo_Click" />
   <br />
-  Show all orders awaiting shipment
-  <asp:Button ID="awaitingShippingGo" runat="server" Text="Go" OnClick="awaitingShippingGo_Click" />
+  Покажи всички чакащи доставки
+  <asp:Button ID="awaitingShippingGo" runat="server" Text="Давай" OnClick="awaitingShippingGo_Click" />
   <br />
   <br />
   <asp:Label ID="errorLabel" runat="server" CssClass="AdminError" EnableViewState="False"></asp:Label>
   &nbsp;<asp:RangeValidator ID="startDateValidator" runat="server" ControlToValidate="startDateTextBox"
-    Display="None" ErrorMessage="Invalid start date" MaximumValue="1/1/2015" MinimumValue="1/1/2009"
+    Display="None" ErrorMessage="Невалидна начална дата" MaximumValue="1/1/2015" MinimumValue="1/1/2009"
     Type="Date"></asp:RangeValidator>
   &nbsp;<asp:RangeValidator ID="endDateValidator" runat="server" ControlToValidate="endDateTextBox"
-    Display="None" ErrorMessage="Invalid end date" MaximumValue="1/1/2015" MinimumValue="1/1/2009"
+    Display="None" ErrorMessage="Невалидна крайна дата" MaximumValue="1/1/2015" MinimumValue="1/1/2009"
     Type="Date"></asp:RangeValidator>
   &nbsp;<asp:CompareValidator ID="compareDatesValidator" runat="server" ControlToCompare="endDateTextBox"
-    ControlToValidate="startDateTextBox" Display="None" ErrorMessage="Start date should be more recent than end date"
+    ControlToValidate="startDateTextBox" Display="None" ErrorMessage="Началната дата трябва да е преди крайната дата"
     Operator="LessThan" Type="Date"></asp:CompareValidator>
   <asp:ValidationSummary ID="validationSummary" runat="server" CssClass="AdminError"
-    HeaderText="Data validation errors:" />
+    HeaderText="Грешки:" />
   <br />
   <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderID"
     OnSelectedIndexChanged="grid_SelectedIndexChanged">
     <Columns>
       <asp:BoundField DataField="OrderID" HeaderText="Order ID" ReadOnly="True" SortExpression="OrderID" />
-      <asp:BoundField DataField="DateCreated" HeaderText="Date Created" ReadOnly="True"
+      <asp:BoundField DataField="DateCreated" HeaderText="Дата на създаване" ReadOnly="True"
         SortExpression="DateCreated" />
-      <asp:BoundField DataField="DateShipped" HeaderText="Date Shipped" ReadOnly="True"
+      <asp:BoundField DataField="DateShipped" HeaderText="Дата на доставка" ReadOnly="True"
         SortExpression="DateShipped" />
-      <asp:BoundField DataField="StatusAsString" HeaderText="Status" ReadOnly="True" SortExpression="StatusAsString" />
-      <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" ReadOnly="True"
+      <asp:BoundField DataField="StatusAsString" HeaderText="Статус" ReadOnly="True" SortExpression="StatusAsString" />
+      <asp:BoundField DataField="CustomerName" HeaderText="Име на клиент" ReadOnly="True"
         SortExpression="CustomerName" />
-      <asp:ButtonField CommandName="Select" Text="Select" />
+      <asp:ButtonField CommandName="Select" Text="Избери" />
     </Columns>
   </asp:GridView>
   <asp:SqlDataSource ID="CustomerNameDS" runat="server" ConnectionString="<%$ ConnectionStrings:BalloonShopConnection %>"

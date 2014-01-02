@@ -35,10 +35,10 @@ public static class Utilities
         string dateTime = DateTime.Now.ToLongDateString() + ", at "
                       + DateTime.Now.ToShortTimeString();
         // stores the error message
-        string errorMessage = "Exception generated on " + dateTime;
+        string errorMessage = "Възникна грешка на " + dateTime;
         // obtain the page that generated the error
         System.Web.HttpContext context = System.Web.HttpContext.Current;
-        errorMessage += "\n\n Page location: " + context.Request.RawUrl;
+        errorMessage += "\n\n Място: " + context.Request.RawUrl;
         // build the error message
         errorMessage += "\n\n Message: " + ex.Message;
         errorMessage += "\n\n Source: " + ex.Source;
@@ -49,7 +49,7 @@ public static class Utilities
         {
             string from = BalloonShopConfiguration.MailFrom;
             string to = BalloonShopConfiguration.ErrorLogEmail;
-            string subject = "BalloonShop Error Report";
+            string subject = "Възникна грешка";
             string body = errorMessage;
             SendMail(from, to, subject, body);
         }

@@ -12,17 +12,17 @@
       // set processor reference
       orderProcessor = processor;
       // audit
-      orderProcessor.CreateAudit("PSStockOK started.", 20300);
+      orderProcessor.CreateAudit("PSStockOK започна.", 20300);
       // the method is called when the supplier confirms that stock is 
       // available, so we don't have to do anything here except audit
-      orderProcessor.CreateAudit("Stock confirmed by supplier.",
+      orderProcessor.CreateAudit("Стоката беше потвърдена от доставчика.",
         20302);
       // update order status
       orderProcessor.Order.UpdateStatus(4);
       // continue processing
       orderProcessor.ContinueNow = true;
       // audit
-      processor.CreateAudit("PSStockOK finished.", 20301);
+      processor.CreateAudit("PSStockOK приключи.", 20301);
     }
   }
 }

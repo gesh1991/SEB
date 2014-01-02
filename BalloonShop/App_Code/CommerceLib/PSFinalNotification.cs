@@ -18,7 +18,7 @@
       try
       {
         // send mail to customer
-        orderProcessor.MailCustomer("BalloonShop order dispatched.", //TODO
+        orderProcessor.MailCustomer("BalloonShop - поръчката е изпълнена.",
           GetMailBody());
         // audit
         orderProcessor.CreateAudit(
