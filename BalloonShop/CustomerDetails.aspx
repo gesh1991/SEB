@@ -1,4 +1,4 @@
-﻿<%@ Page Title="BalloonShop : Customer Details" Language="C#" 
+﻿<%@ Page Title="TicketsOne : Детайли за клиента" Language="C#" 
 MasterPageFile="~/BalloonShop.master" AutoEventWireup="true" 
 CodeFile="CustomerDetails.aspx.cs" Inherits="CustomerDetails" %>
 
@@ -9,7 +9,7 @@ Src="UserControls/CustomerDetailsEdit.ascx" %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <h1>
-    <span class="CatalogTitle">Edit Your Details</span>
+    <span class="CatalogTitle">Промени на личните данни</span>
   </h1>
   <uc1:CustomerDetailsEdit ID="CustomerDetailsEdit1" runat="server" />
 </asp:Content>

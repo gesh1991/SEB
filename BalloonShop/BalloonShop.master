@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>BalloonShop: Online Store Demo</title>
+    <title>TicketsOne: билети за всякакви спортни прояви</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -28,9 +28,9 @@
             </div>
             <div class="Right">
                 <div class="Header">
-                    <asp:HyperLink ID="HeaderLink" NavigateUrl="~/" ToolTip="BalloonShop logo"
+                    <asp:HyperLink ID="HeaderLink" NavigateUrl="~/" ToolTip="TicketsOne logo"
                         runat="server">
-          <asp:image imageurl="~/Images/BalloonShopLogo.png" runat="server" AlternateText="BalloonShop logo" />
+          <asp:image imageurl="~/Images/BalloonShopLogo.png" runat="server" AlternateText="TicketsOne logo" />
                     </asp:HyperLink>
                 </div>
                 <div class="Contents">

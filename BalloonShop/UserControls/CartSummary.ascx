@@ -14,7 +14,7 @@
         </ItemTemplate>
       </asp:DataList>
       <img src="Images/line.gif" border="0" width="99%" height="1" />
-      Total: <span class="ProductPrice">
+      Общо: <span class="ProductPrice">
         <asp:Label ID="totalAmountLabel" runat="server" />
       </span>
     </td>

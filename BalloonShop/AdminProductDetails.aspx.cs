@@ -106,12 +106,12 @@ public partial class AdminProductDetails : System.Web.UI.Page
       // Remove the product from the category 
       bool success = CatalogAccess.RemoveProductFromCategory(currentProductId, categoryId);
       // Display status message
-      statusLabel.Text = success ? "Product removed successfully" : "Product removal failed";
+      statusLabel.Text = success ? "Продуктът беше премахнат успешно" : "Продуктът не беше премахнат успешно";
       // Refresh the page
       PopulateControls();
     }
     else
-      statusLabel.Text = "You need to select a category";
+      statusLabel.Text = "Моля изберете категория";
   }
 
   // delete a product from the catalog
@@ -134,12 +134,12 @@ public partial class AdminProductDetails : System.Web.UI.Page
       // Assign the product to the category
       bool success = CatalogAccess.AssignProductToCategory(currentProductId, categoryId);
       // Display status message
-      statusLabel.Text = success ? "Product assigned successfully" : "Product assignation failed";
+      statusLabel.Text = success ? "Продуктът беше добавен успешно" : "Продуктът не беше добавен успешно";
       // Refresh the page
       PopulateControls();
     }
     else
-      statusLabel.Text = "You need to select a category";
+        statusLabel.Text = "Моля изберете категория";
   }
 
 
@@ -156,7 +156,7 @@ public partial class AdminProductDetails : System.Web.UI.Page
       // If the operation was successful, reload the page, 
       // so the new category will reflect in the query string
       if (!success)
-        statusLabel.Text = "Couldn't move the product to the specified category";
+        statusLabel.Text = "Не можахме да преместим продукта";
       else
         Response.Redirect("AdminProductDetails.aspx" +
               "?DepartmentID=" + currentDepartmentId +
@@ -164,7 +164,7 @@ public partial class AdminProductDetails : System.Web.UI.Page
               "&ProductID=" + currentProductId);
     }
     else
-      statusLabel.Text = "You need to select a category";
+        statusLabel.Text = "Моля изберете категория";
   }
 
   // upload product's first image
@@ -190,7 +190,7 @@ public partial class AdminProductDetails : System.Web.UI.Page
       }
       catch
       {
-        statusLabel.Text = "Uploading image 1 failed";
+        statusLabel.Text = "Изображението не беше качено успешно";
       }
     }
   }
@@ -218,7 +218,7 @@ public partial class AdminProductDetails : System.Web.UI.Page
       }
       catch
       {
-        statusLabel.Text = "Uploading image 2 failed";
+          statusLabel.Text = "Изображението не беше качено успешно";
       }
     }
   }

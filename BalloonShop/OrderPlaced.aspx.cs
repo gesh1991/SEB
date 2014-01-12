@@ -16,7 +16,8 @@ public partial class OrderPlaced : System.Web.UI.Page
   protected void Page_Load(object sender, EventArgs e)
   {
     // Set the title of the page
-    this.Title = BalloonShopConfiguration.SiteName +
-                " : Order Placed";
+      //this.Title = BalloonShopConfiguration.SiteName +
+      //            " : Order Placed";
+      this.Title = "TicketsOne : Заявката е приключена";
   }
 }

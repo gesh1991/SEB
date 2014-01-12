@@ -17,6 +17,7 @@ public partial class Login : System.Web.UI.Page
     usernameTextBox.Focus();
 
     // set the page title
-    this.Title = BalloonShopConfiguration.SiteName + ": Login";
+    //this.Title = BalloonShopConfiguration.SiteName + ": Login";
+    this.Title = "TicketsOne: Вход";
   }
 }

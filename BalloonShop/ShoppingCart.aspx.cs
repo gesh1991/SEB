@@ -25,7 +25,7 @@ public partial class ShoppingCart: System.Web.UI.Page
     // if the shopping cart is empty...
     if (dt.Rows.Count == 0)
     {
-      titleLabel.Text = "Your shopping cart is empty!";
+      titleLabel.Text = "Количката Ви е празна!";
       grid.Visible = false;
       updateButton.Enabled = false;
       checkoutButton.Enabled = false;
@@ -38,7 +38,7 @@ public partial class ShoppingCart: System.Web.UI.Page
       grid.DataSource = dt;
       grid.DataBind();
       // setup controls
-      titleLabel.Text = "These are the products in your shopping cart:";
+      titleLabel.Text = "Това са продуктите в количката Ви:";
       grid.Visible = true;
       updateButton.Enabled = true;
       checkoutButton.Enabled = true;
@@ -58,8 +58,8 @@ public partial class ShoppingCart: System.Web.UI.Page
     // Remove the product from the shopping cart
     bool success = ShoppingCartAccess.RemoveItem(productId);
     // Display status
-    statusLabel.Text = success ? "Product successfully removed!" :
-                  "There was an error removing the product! ";
+    statusLabel.Text = success ? "Продуктът беше успешно премахнат!" :
+                  "Възникна грешка при премахване на продукта! ";
     // Repopulate the control
     PopulateControls();
   }
@@ -101,8 +101,8 @@ public partial class ShoppingCart: System.Web.UI.Page
 
       // Display status message
       statusLabel.Text = success ?
-      "Your shopping cart was successfully updated!" :
-      "Some quantity updates failed! Please verify your cart!";
+      "Успешно обновихме ингормацията за количката Ви!" :
+      "Възникна грешка Моля проверете стоките в количката си!!";
     }
     // Repopulate the control
     PopulateControls();

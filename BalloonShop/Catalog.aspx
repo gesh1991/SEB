@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/BalloonShop.master" AutoEventWireup="true"
-  CodeFile="Catalog.aspx.cs" Inherits="Catalog" Title="BalloonShop: Catalog" %>
+  CodeFile="Catalog.aspx.cs" Inherits="Catalog" Title="TicketsOne: Каталог" %>
 
 <%@ Register src="UserControls/ProductsList.ascx" tagname="ProductsList" tagprefix="uc1" %>
 

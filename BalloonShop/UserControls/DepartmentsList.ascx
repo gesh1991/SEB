@@ -3,7 +3,7 @@
 <asp:DataList ID="list" runat="server" Width="200px" CssClass="DepartmentsList">
     <HeaderStyle CssClass="DepartmentsListHead" />
     <HeaderTemplate>
-        Choose a Department
+        Изберете отдел
     </HeaderTemplate>
     <ItemTemplate>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Link.ToDepartment(Eval("DepartmentID").ToString())%>'
@@ -13,7 +13,7 @@
     </ItemTemplate>
     <FooterTemplate>
         <a id="A1" runat="server" href="~/AmazonProducts.aspx" class='<%# Request.AppRelativeCurrentExecutionFilePath == 
-       "~/AmazonProducts.aspx" ? "DepartmentSelected" : "DepartmentUnselected" %>'>Amazon Balloons
+       "~/AmazonProducts.aspx" ? "DepartmentSelected" : "DepartmentUnselected" %>'>Билети от Amazon
         </a>
     </FooterTemplate>
 </asp:DataList>

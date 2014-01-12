@@ -15,11 +15,10 @@ public partial class Search : System.Web.UI.Page
         {
             // fill the table contents
             string searchString = Request.QueryString["Search"];
-            titleLabel.Text = "Product Search";
-            descriptionLabel.Text = "You searched for \"" + searchString + "\"";
+            titleLabel.Text = "Търсеме";
+            descriptionLabel.Text = "Вие търсихте за \"" + searchString + "\"";
             // set the title of the page
-            this.Title = BalloonShopConfiguration.SiteName +
-                         " : Product Search : " + searchString;
+            this.Title = "TicketsOne : Търсене : " + searchString;
         }
     }
 }
